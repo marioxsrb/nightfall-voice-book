@@ -324,6 +324,35 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
   </details>
 
   <details class="tool">
+    <summary><span class="plus">+</span><span><span class="ttl">Numbers you can quote</span>
+      <span class="sub">Sleep research with a source on every line</span></span></summary>
+    <div class="in">
+      <p class="sublab">Immunity</p>
+      <div class="craft">
+        <div><b>70%</b><span>One night on four hours of sleep drops natural killer cell activity by 70%. Irwin et al., cited by Walker. Some summaries report 30%, so confirm the figure with Matt before it runs.</span></div>
+      </div>
+      <p class="sublab">Learning</p>
+      <div class="craft">
+        <div><b>40%</b><span>A sleep-deprived brain takes in about 40% less new information. Walker's own hippocampus work.</span></div>
+      </div>
+      <p class="sublab">Performance</p>
+      <div class="craft">
+        <div><b>9% and 9.2%</b><span>Stanford players who extended sleep from 6.6 to 8.5 hours gained 9% on free throws and 9.2% on three-pointers in two months. Cheri Mah, shared by Walker himself.</span></div>
+        <div><b>200%</b><span>Five to six hours a night raises injury rate by more than 200% across a season, measured against nine hours.</span></div>
+        <div><b>Ten years</b><span>Men who sleep five hours carry the testosterone of someone ten years their senior.</span></div>
+      </div>
+      <p class="sublab">Founder proof</p>
+      <div class="craft">
+        <div><b>The record</b><span>100 peer-reviewed papers, 25 million TED views, 4 million books sold. All three sit on the site already.</span></div>
+      </div>
+      <p class="sublab">Handle with care</p>
+      <div class="craft">
+        <div><b>24%</b><span>Heart attacks rose 24% on the Monday after the spring clock change in Michigan. True, and it sits close to the fear line that Rule 7 keeps us behind. Use it as a fact about clocks, and leave the reader out of it.</span></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="tool">
     <summary><span class="plus">+</span><span><span class="ttl">Check a text</span>
       <span class="sub">Paste any copy and see what falls outside the voice</span></span></summary>
     <div class="in">
@@ -389,6 +418,11 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
       <div><b>The competition</b><span>RISE runs a sleep clinic over telehealth and leads with "Done with sleep hacks? Try science", self-booking, insurance accepted.</span></div>
       <div><b>Orthosomnia</b><span>Chasing a perfect score raises sleep anxiety. Named by sleep researchers in 2017 and now common in press coverage.</span></div>
       <div><b>The wait</b><span>Patients report two to three months for a sleep clinic appointment. Online specialists book within days.</span></div>
+      <div><b>Oura, verbatim</b><span>"This tiny little ring here has completely changed the game for me." "Sleep is the single most important metric in your life." First person, on camera, 57 seconds on average, and some creatives keep running past 1,500 days.</span></div>
+      <div><b>Oura, 2026</b><span>The Subtle Power campaign and the World Cup spot "World's Smallest Ring", which pulled 267 times the engagement of the median World Cup ad.</span></div>
+      <div><b>Whoop, verbatim</b><span>"Unlock your best performance." "The Best Obsess." Sign-off on everything: "See where WHOOP can take you." Their ads score highest on competence and achievement.</span></div>
+      <div><b>Hormozi</b><span>The hook carries about 80% of an ad. Call out the exact person, name the goal, give it a deadline. Write it so the reader thinks: that happened to me.</span></div>
+      <div><b>Headlines with numbers</b><span>Headlines carrying a number earn around 36% more clicks. This is why F2 exists.</span></div>
       <div><b>Search volume</b><span>One question tops sleep search in 46 states: why sleep keeps failing. "Why am I so tired" gets 74,000 searches a month worldwide.</span></div>
       <div><b>What makes a hook work</b><span>UGC research for 2026 puts specificity above cleverness. Every winning hook carries one constraint: a time, a cost, a device, or a limit.</span></div>
       <div><b>Three seconds</b><span>71% of viewers decide whether to keep watching inside three seconds, on average after 1.7.</span></div>
@@ -448,62 +482,67 @@ const CRAFT = [
   {k:'Endings', v:'Close on a verb. Something to do.'}
 ];
 const HOOKS = [
-  {f:'F1', t:'You have googled why can\'t I sleep more than once this month.'},
-  {f:'F1', t:'You wake up at 3am and lie there until 4:30.'},
-  {f:'F1', t:'You slept eight hours and still needed two coffees before noon.'},
-  {f:'F1', t:'Bed at 10:30. Asleep at 12:15. Awake at 3.'},
-  {f:'F1', t:'Tired all day, wide awake the second you lie down.'},
-  {f:'F1', t:'Falling asleep is fine. Staying asleep is the problem.'},
-  {f:'F1', t:'The alarm goes off and it feels like you just lay down.'},
-  {f:'F2', t:'You wear an Oura ring and you still wake up tired.'},
-  {f:'F2', t:'Your ring gave you a 62 this morning and kept the reason to itself.'},
-  {f:'F2', t:'Whoop says your recovery is 41%. Then it leaves you there.'},
-  {f:'F2', t:'A year of sleep data. Name one thing you changed because of it.'},
-  {f:'F2', t:'You know your REM was 18%. Tonight you are still guessing.'},
-  {f:'F2', t:'You check your sleep score before you check how you feel.'},
-  {f:'F3', t:'Going to bed earlier is why some people wake up at 3am.'},
-  {f:'F3', t:'One change beats eleven new habits.'},
-  {f:'F3', t:'Move one thing tonight. Look at the number on Friday.'},
-  {f:'F3', t:'One instruction a week. That is the whole program.'},
-  {f:'F3', t:'Change five things at once and the result stays a mystery.'},
-  {f:'F4', t:'Connect your ring. We read the last 30 nights and write back.'},
-  {f:'F4', t:'Skip the sleep diary. It reads your wearable while you sleep.'},
-  {f:'F4', t:'Two minutes to connect, and the spreadsheet stays closed.'},
-  {f:'F4', t:'You have been running your own sleep experiments for two years.'},
+  {f:'F1', t:'For everyone who wears an Oura ring and still wakes up tired.'},
+  {f:'F1', t:'For the 3am club: awake at 3, asleep again at 5, wrecked at 9.'},
+  {f:'F1', t:'For people who have already tried magnesium, mouth tape and a 10pm bedtime.'},
+  {f:'F1', t:'Wearing a tracker for a year? Read this before you buy another one.'},
+  {f:'F1', t:'If your ring says 62 this morning, start here.'},
+  {f:'F2', t:'One night on four hours of sleep drops your immune cell activity by 70%.'},
+  {f:'F2', t:'A tired brain takes in 40% less of what you read today.'},
+  {f:'F2', t:'Stanford players who slept 8.5 hours hit 9% more free throws.'},
+  {f:'F2', t:'Men who sleep five hours carry the testosterone of someone ten years older.'},
+  {f:'F2', t:'Five hours a night raises an athlete\'s injury rate by more than 200% across a season.'},
+  {f:'F2', t:'Two extra hours in bed lifted three-point accuracy by 9.2%.'},
+  {f:'F3', t:'You wake up at 3am and lie there until 4:30.'},
+  {f:'F3', t:'Bed at 10:30. Asleep at 12:15. Awake at 3.'},
+  {f:'F3', t:'You slept eight hours and still needed two coffees before noon.'},
+  {f:'F3', t:'Tired all day, wide awake the second you lie down.'},
+  {f:'F3', t:'Falling asleep is the easy part for you. Staying asleep is the hard part.'},
+  {f:'F3', t:'The alarm goes off and it feels like you just lay down.'},
+  {f:'F4', t:'Your ring gave you a 62 this morning and kept the reason to itself.'},
+  {f:'F4', t:'Whoop says your recovery is 41%. Then it leaves you there.'},
+  {f:'F4', t:'A year of sleep data. Name one thing you changed because of it.'},
+  {f:'F4', t:'You know your REM was 18%. Tonight you are still guessing.'},
+  {f:'F4', t:'Your ring measures. Nightfall reads it and hands you tonight\'s change.'},
   {f:'F5', t:'A sleep clinic can take two to three months. This is a video call from your bedroom.'},
   {f:'F5', t:'You snore and you are wrecked by 2pm. A doctor should hear that.'},
   {f:'F5', t:'Some sleep problems need a prescription. That takes a physician.'},
   {f:'F5', t:'Your physician reads your report before the call starts.'},
   {f:'F5', t:'A board-certified sleep doctor on video, booked by you, this week.'},
   {f:'F6', t:'Dr. Matthew Walker wrote Why We Sleep. This is what he built next.'},
-  {f:'F6', t:'25 years of sleep research, pointed at your last 30 nights.'}
+  {f:'F6', t:'25 years of sleep research, pointed at your last 30 nights.'},
+  {f:'F6', t:'25 million people watched his TED talk. Now he wants to read your ring.'},
+  {f:'F6', t:'Practice plus a night of sleep is what makes perfect. He built the app for the sleep part.'}
 ];
 const FAM = {
   all:{en:'All'},
-  F1:{en:'F1 Recognition'},
-  F2:{en:'F2 The gap'},
-  F3:{en:'F3 One thing'},
-  F4:{en:'F4 We take over'},
-  F5:{en:'F5 A real doctor'},
-  F6:{en:'F6 Authority'}
+  F1:{en:'F1 Callout'},
+  F2:{en:'F2 The number'},
+  F3:{en:'F3 Their night'},
+  F4:{en:'F4 The gap'},
+  F5:{en:'F5 The doctor'},
+  F6:{en:'F6 Walker'}
 };
 const AD_H = ['Why do I wake up at 3am?','Why am I always tired?','Your sleep score, explained',
-  'Talk to a sleep doctor','Your Oura data, decoded','Why you wake up at 3am','Built by Dr. Matthew Walker',
+  'Talk to a sleep doctor','Your Oura data, decoded','30 nights, one clear answer','Built by Dr. Matthew Walker',
   'Sleep doctor this week','Tired every day? Start here.','One change, starting tonight'];
 const AD_D = ['Nightfall reads your wearable data and tells you what to change tonight. Join the alpha.',
   'When four weeks of changes fall short, a board-certified sleep doctor takes over.',
   'Founded by Dr. Matthew Walker. Understand your sleep, then act on it.',
   'A sleep physician on video, booked by you, with your report already read.'];
 const ANGLES = [
-  {k:'confusion', en:'Confused', use:['F2'],
+  {k:'confusion', en:'Confused', use:['F4'],
    mech:'Nightfall reads the data your ring already collects and turns it into a plan for tonight.',
-   proof:'Founded by Dr. Matthew Walker, the sleep scientist behind Why We Sleep.'},
+   proof:'Founded by Dr. Matthew Walker, 25 years of sleep research and 100 peer-reviewed papers.'},
   {k:'tired', en:'Exhausted', use:['F1','F3'],
-   mech:'We look at your nights, find the one habit costing you the most, and give you that single change.',
-   proof:'Built on 25 years of sleep research.'},
+   mech:'We look at your last 30 nights, find the one habit costing you the most, and send that single change.',
+   proof:'Stanford players who extended sleep to 8.5 hours gained 9% on free throws in two months.'},
+  {k:'science', en:'Science', use:['F2','F6'],
+   mech:'Nightfall turns that research into one instruction a week, based on your own nights.',
+   proof:'Built by the sleep scientist behind Why We Sleep, 4 million copies sold.'},
   {k:'medical', en:'Medical', use:['F5'],
    mech:'Nightfall watches your sleep data and books you with a physician when the pattern looks clinical.',
-   proof:'Board-certified sleep physicians. Same week, from home.'}
+   proof:'Board-certified sleep physicians, on video, this week.'}
 ];
 const BLK = {rec:{en:'Recognition'}, mec:{en:'Mechanism'},
   pro:{en:'Proof'}, act:{en:'Action'}};

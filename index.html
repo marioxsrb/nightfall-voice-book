@@ -1,0 +1,749 @@
+<title>Nightfall Voice Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,200..900;1,300..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --panel:#F4F3F1; --cream:#FBF2E1; --ink:#16181C; --mut:#6B6B67;
+  --faint:#8A8A86; --line:#E6E6E3; --orange:#FF6116; --maroon:#7E1F1A;
+  --good-bg:#FFF3EC; --bad-bg:#F7EFEE;
+  --sans:'Urbanist',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --rail:246px; --measure:68ch;
+  --sh:0 1px 0 rgba(0,0,0,.04), 0 6px 20px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101215; --panel:#191C21; --cream:#221D14; --ink:#EAEAE8; --mut:#A2A29D;
+    --faint:#7E7E7A; --line:#2A2D34; --orange:#FF8A4D; --maroon:#E8867C;
+    --good-bg:#20180F; --bad-bg:#221618;
+    --sh:0 1px 0 rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101215; --panel:#191C21; --cream:#221D14; --ink:#EAEAE8; --mut:#A2A29D;
+  --faint:#7E7E7A; --line:#2A2D34; --orange:#FF8A4D; --maroon:#E8867C;
+  --good-bg:#20180F; --bad-bg:#221618;
+  --sh:0 1px 0 rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;
+  font-weight:400;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{text-wrap:balance;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:3px}
+.lab{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:500}
+
+/* shell */
+.shell{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);align-items:start;max-width:1240px;margin:0 auto}
+.rail{position:sticky;top:0;height:100vh;overflow-y:auto;padding:34px 20px 40px 28px;border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:22px}
+.mark{display:flex;flex-direction:column;gap:2px}
+.mark b{font-size:19px;font-weight:800;letter-spacing:-.03em}
+.mark span{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.rail nav{display:flex;flex-direction:column;gap:1px}
+.rail nav a{display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:baseline;text-decoration:none;
+  padding:6px 8px 6px 6px;border-radius:6px;font-size:14.5px;color:var(--mut);transition:color .15s,background .15s}
+.rail nav a i{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--faint)}
+.rail nav a:hover{color:var(--ink);background:var(--panel)}
+.rail nav a.on{color:var(--ink);font-weight:600;background:var(--panel)}
+.rail nav a.on i{color:var(--orange)}
+.railfoot{margin-top:auto;font-size:12.5px;color:var(--faint);display:flex;flex-direction:column;gap:10px}
+.tog{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:none;
+  border:1px solid var(--line);color:var(--mut);padding:6px 10px;border-radius:20px;cursor:pointer;width:fit-content}
+.tog:hover{border-color:var(--orange);color:var(--ink)}
+main{padding:0 40px 120px;min-width:0}
+section{padding:64px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+section:last-of-type{border-bottom:0}
+.head{display:flex;flex-direction:column;gap:12px;max-width:var(--measure)}
+.head h2{font-size:clamp(26px,3.2vw,34px)}
+.lede{color:var(--mut);font-size:17.5px;max-width:var(--measure)}
+.body{max-width:var(--measure);display:flex;flex-direction:column;gap:16px;margin-top:26px}
+
+/* hero */
+.hero{padding:86px 0 70px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800;letter-spacing:-.035em;line-height:1.02}
+.hero h1 em{font-style:normal;display:block;color:var(--orange)}
+.hero .sub{margin-top:26px;font-size:19px;color:var(--mut);max-width:60ch}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);
+  border:1px solid var(--line);border-radius:20px;padding:6px 12px;background:var(--panel)}
+.pair{margin-top:44px;border-left:2px solid var(--orange);padding:4px 0 4px 20px;display:flex;flex-direction:column;gap:2px}
+.pair b{font-size:22px;font-weight:600}
+.pair span{font-size:22px;font-weight:600;color:var(--mut)}
+
+/* generic pieces */
+.grid{display:grid;gap:14px;margin-top:26px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 20px 22px;
+  display:flex;flex-direction:column;gap:8px}
+.card h3{font-size:17px;font-weight:700}
+.card p{font-size:15px;color:var(--mut)}
+.card .lab{margin-bottom:2px}
+blockquote{margin:0;background:var(--cream);border-radius:12px;padding:20px 22px;font-size:18px;
+  font-weight:500;line-height:1.45;border:1px solid var(--line)}
+blockquote cite{display:block;margin-top:10px;font-style:normal;font-family:var(--mono);font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+ul.plain{margin:0;padding-left:20px;color:var(--mut);font-size:16px;display:flex;flex-direction:column;gap:7px}
+ul.plain b{color:var(--ink);font-weight:600}
+
+/* evidence rows */
+.rows{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:28px}
+.row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.row h3{font-size:15.5px;font-weight:700}
+.row p{font-size:15.5px;color:var(--mut)}
+.row q{display:block;margin-top:8px;font-size:15.5px;color:var(--ink);font-weight:500;quotes:'"' '"'}
+
+/* archetype meter */
+.meter{margin-top:28px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.meter .bar{display:flex;height:64px}
+.meter .seg{display:flex;align-items:center;padding:0 18px;font-weight:700;font-size:15px}
+.seg.care{flex:70;background:var(--orange);color:#16181C}
+.seg.sage{flex:30;background:var(--panel);color:var(--ink)}
+.meter .legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:18px;
+  border-top:1px solid var(--line)}
+.meter .legend div p{font-size:14.5px;color:var(--mut);margin-top:4px}
+
+/* rules */
+.rule{border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:14px;background:var(--bg)}
+.rule .top{display:flex;gap:12px;align-items:baseline}
+.rule .num{font-family:var(--mono);font-size:12px;color:var(--orange);font-weight:600}
+.rule h3{font-size:17.5px}
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.ex div{border-radius:10px;padding:13px 15px;font-size:15.5px;line-height:1.45}
+.ex .yes{background:var(--good-bg);border:1px solid var(--line)}
+.ex .no{background:var(--bad-bg);border:1px solid var(--line);color:var(--mut)}
+.ex .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px}
+.ex .yes .t{color:var(--orange)}
+.ex .no .t{color:var(--maroon)}
+.rules{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+
+/* word lists */
+.words{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.w{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border-radius:6px;background:var(--panel);border:1px solid var(--line)}
+.w.ban{color:var(--maroon);text-decoration:line-through;text-decoration-thickness:1px}
+.w.own{color:var(--ink)}
+
+/* hooks */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 18px}
+.f{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:7px 13px;
+  border-radius:20px;border:1px solid var(--line);background:var(--bg);color:var(--mut);cursor:pointer}
+.f:hover{color:var(--ink);border-color:var(--faint)}
+.f[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hooks{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.hook{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;
+  display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.hook p{font-size:16px;font-weight:500;line-height:1.4}
+.hook .bot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.copy{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:none;
+  border:1px solid var(--line);color:var(--mut);padding:5px 10px;border-radius:6px;cursor:pointer}
+.copy:hover{border-color:var(--orange);color:var(--ink)}
+.copy.done{color:var(--orange);border-color:var(--orange)}
+.count{font-family:var(--mono);font-size:12px;color:var(--faint);margin-bottom:10px}
+
+/* ads table */
+.ads{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:22px}
+.ad{display:grid;grid-template-columns:minmax(0,1fr) 92px 62px;gap:12px;align-items:center;
+  padding:12px 16px;border-bottom:1px solid var(--line);font-size:15.5px}
+.ad:last-child{border-bottom:0}
+.ad .len{font-family:var(--mono);font-size:12.5px;color:var(--faint);text-align:right;font-variant-numeric:tabular-nums}
+.ad .len.over{color:var(--maroon);font-weight:600}
+.ad .len b{color:var(--ink);font-weight:600}
+.adhead{background:var(--panel);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint)}
+.adhead span:last-child{text-align:right}
+.adhead span:nth-child(2){text-align:right}
+
+/* builder */
+.builder{margin-top:24px;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:20px}
+.picks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.out{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:18px 20px;
+  display:flex;flex-direction:column;gap:12px}
+.out .blk{display:grid;grid-template-columns:104px minmax(0,1fr);gap:14px;align-items:baseline}
+.out .blk p{font-size:16px;font-weight:500}
+.acts{display:flex;gap:8px;margin-top:14px}
+.btn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;
+  border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer}
+.btn.ghost{background:none;color:var(--mut);border-color:var(--line)}
+.btn.ghost:hover{color:var(--ink);border-color:var(--faint)}
+
+/* checker */
+.check{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;margin-top:26px;align-items:start}
+textarea{width:100%;min-height:250px;resize:vertical;font-family:var(--sans);font-size:16.5px;line-height:1.5;
+  color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+textarea:focus{outline:2px solid var(--orange);outline-offset:2px}
+.report{display:flex;flex-direction:column;gap:8px}
+.stat{display:flex;justify-content:space-between;align-items:baseline;background:var(--panel);
+  border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-size:14.5px}
+.stat b{font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums}
+.flags{display:flex;flex-direction:column;gap:7px}
+.flag{border-radius:9px;padding:11px 13px;font-size:14.5px;line-height:1.4;border:1px solid var(--line)}
+.flag.ok{background:var(--good-bg)}
+.flag.warn{background:var(--bad-bg);color:var(--ink)}
+.flag em{font-style:normal;font-family:var(--mono);font-size:13px;color:var(--maroon)}
+.flag.ok em{color:var(--orange)}
+
+/* decisions */
+.dec{display:grid;grid-template-columns:34px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.dec .n{font-family:var(--mono);font-size:13px;color:var(--orange);font-weight:600}
+.dec h3{font-size:17px;margin-bottom:6px}
+.dec p{font-size:15.5px;color:var(--mut)}
+footer{padding:44px 0 0;color:var(--faint);font-size:14px;display:flex;flex-direction:column;gap:6px}
+
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:22px 22px 18px}
+  .rail nav{flex-direction:row;flex-wrap:wrap;gap:6px}
+  .rail nav a{grid-template-columns:auto;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:20px}
+  .rail nav a i{display:none}
+  .railfoot{margin-top:14px}
+  main{padding:0 22px 90px}
+  .row{grid-template-columns:1fr;gap:6px}
+  .check{grid-template-columns:1fr}
+  .ad{grid-template-columns:minmax(0,1fr) 70px;}
+  .ad span:nth-child(2){display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="mark"><b>Nightfall</b><span>Voice book</span></div>
+    <nav id="nav">
+      <a href="#evidence"><i>01</i><span>Voice on the page</span></a>
+      <a href="#archetype"><i>02</i><span>Archetype</span></a>
+      <a href="#reader"><i>03</i><span>Who we talk to</span></a>
+      <a href="#promise"><i>04</i><span>The promise</span></a>
+      <a href="#rules"><i>05</i><span>Seven tone rules</span></a>
+      <a href="#lexicon"><i>06</i><span>Lexicon</span></a>
+      <a href="#craft"><i>07</i><span>Writing rules</span></a>
+      <a href="#hooks"><i>08</i><span>Hook library</span></a>
+      <a href="#ads"><i>09</i><span>Google Ads</span></a>
+      <a href="#paid"><i>10</i><span>Paid social</span></a>
+      <a href="#organic"><i>11</i><span>Organic posts</span></a>
+      <a href="#checker"><i>12</i><span>Voice check</span></a>
+      <a href="#decisions"><i>13</i><span>Open decisions</span></a>
+    </nav>
+    <div class="railfoot">
+      <button class="tog" id="theme" type="button">Theme</button>
+      <span>Copy in English. Built from the live site.</span>
+    </div>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <span class="lab">Brand voice, hooks and language</span>
+      <h1>Say it the way<em>a good doctor would.</em></h1>
+      <p class="sub">Nightfall speaks like someone who has read your data, knows the science, and still talks to you
+        like a person. This page holds the voice, the words, the hooks and the checks that keep every line on brand.</p>
+      <div class="meta">
+        <span class="chip">Caregiver 70</span>
+        <span class="chip">Sage 30</span>
+        <span class="chip">Second person, always</span>
+        <span class="chip">Short pairs</span>
+        <span class="chip">Precise numbers</span>
+      </div>
+      <div class="pair">
+        <b>Sleep intelligence.</b>
+        <span>Clinical action.</span>
+      </div>
+    </header>
+
+    <section id="evidence">
+      <div class="head">
+        <span class="lab">01 / Evidence</span>
+        <h2>The voice is already on the page</h2>
+        <p class="lede">Six patterns pulled straight from nightfallhealth.com. Everything below grows out of these,
+          so the brand book stays a description of the brand rather than a wish list.</p>
+      </div>
+      <div class="rows">
+        <div class="row">
+          <h3>Sentences in pairs</h3>
+          <div><p>A short claim, then the line that completes it. This is the signature rhythm.</p>
+            <q>Insight when you can fix it. Care when you can't.</q></div>
+        </div>
+        <div class="row">
+          <h3>The gap, framed as a gap</h3>
+          <div><p>The problem sits with the information, and the reader keeps their dignity.</p>
+            <q>Data isn't guidance. Nightfall turns data into action.</q></div>
+        </div>
+        <div class="row">
+          <h3>Real people as the proof</h3>
+          <div><p>The word real appears three times across the page. Treat it as a promise, since it reads as one.</p>
+            <q>A real, board-certified sleep physician, one appointment away.</q></div>
+        </div>
+        <div class="row">
+          <h3>Every block ends in a verb</h3>
+          <div><p>Connect, see, know what to change. Schedule, meet, get support. The reader always leaves with an action.</p></div>
+        </div>
+        <div class="row">
+          <h3>Numbers carry units</h3>
+          <div><p>7h 42m. 9 min. 91%. Precision does the persuading, so superlatives can stay out.</p></div>
+        </div>
+        <div class="row">
+          <h3>The archetype is stated in the footer</h3>
+          <div><p>The last line of the site says it in five words.</p>
+            <q>Designed with care for your sleep.</q></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="archetype">
+      <div class="head">
+        <span class="lab">02 / Archetype</span>
+        <h2>Caregiver leads. Sage backs it up.</h2>
+        <p class="lede">Caregiver alone reads like a soft wellness app and loses the clinic. Sage alone reads like a
+          lab report, and a tired person sees themselves nowhere in it. The blend is a Sage who speaks gently. The good doctor.</p>
+      </div>
+      <div class="meter">
+        <div class="bar">
+          <div class="seg care">Caregiver 70</div>
+          <div class="seg sage">Sage 30</div>
+        </div>
+        <div class="legend">
+          <div><span class="lab">Caregiver leads the sentence</span>
+            <p>Warmth, protection, we handle it. The doctor who takes over when you have run out of ideas.</p></div>
+          <div><span class="lab">Sage supports it</span>
+            <p>Science, Dr. Matthew Walker, the data, the explanation. It arrives second, as backup.</p></div>
+        </div>
+      </div>
+      <div class="grid g3">
+        <div class="card"><span class="lab">Wants</span><h3>To leave nobody alone with a problem they find confusing.</h3></div>
+        <div class="card"><span class="lab">Fears</span><h3>Handing generic advice to someone who needs real help.</h3></div>
+        <div class="card"><span class="lab">Acts</span><h3>Reads your data, explains it, and brings in a human when that is the honest answer.</h3></div>
+      </div>
+    </section>
+
+    <section id="reader">
+      <div class="head">
+        <span class="lab">03 / Reader</span>
+        <h2>Three states, three tones</h2>
+        <p class="lede">The same person moves between these. Write for the state, then pick the hook family that matches it.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card">
+          <span class="lab">State one</span><h3>Confused</h3>
+          <p>Has worn an Oura or a Whoop for a year. Sees a score every morning and has nothing to do with it.
+            Healthy, and stuck. This is the core audience.</p>
+          <p><b>Needs clarity.</b> Lead with hook family F2.</p>
+        </div>
+        <div class="card">
+          <span class="lab">State two</span><h3>Tired</h3>
+          <p>Sleeps seven hours and wakes up wrecked. Has tried supplements and routines. Starting to believe
+            something is wrong with them.</p>
+          <p><b>Needs hope.</b> Lead with F1, then F3.</p>
+        </div>
+        <div class="card">
+          <span class="lab">State three</span><h3>Worried</h3>
+          <p>Suspects apnea or real insomnia. Knows a doctor is the answer, and the next opening is four months out,
+            in a building far away.</p>
+          <p><b>Needs access.</b> Lead with F5.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="promise">
+      <div class="head">
+        <span class="lab">04 / Promise</span>
+        <h2>One promise, three ways to say it</h2>
+      </div>
+      <div class="body">
+        <blockquote>We tell you what is really happening in your sleep, and we stay with you until it is fixed.
+          <cite>The central promise. Everything else is a version of this.</cite></blockquote>
+        <ul class="plain">
+          <li><b>Your data means something.</b> We tell you what.</li>
+          <li><b>One thing to change,</b> in place of a checklist.</li>
+          <li><b>A real doctor</b> the moment the app reaches its limit.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="rules">
+      <div class="head">
+        <span class="lab">05 / Tone</span>
+        <h2>Seven rules, with the line that breaks each one</h2>
+        <p class="lede">Rule seven is the one that slips most often. The sleep category runs on fear of death and
+          dementia. Nightfall stays out of that room, because a caregiver who frightens people to sell has stopped being one.</p>
+      </div>
+      <div class="rules" id="rules-list"></div>
+    </section>
+
+    <section id="lexicon">
+      <div class="head">
+        <span class="lab">06 / Lexicon</span>
+        <h2>Words that belong to us</h2>
+        <p class="lede">The word intelligence describes the product. Keep it away from the reader, since
+          "get smarter about sleep" turns a customer into a student.</p>
+      </div>
+      <div class="body">
+        <span class="lab">Brand words</span>
+        <div class="words" id="own-words"></div>
+      </div>
+      <div class="body">
+        <span class="lab">Words we leave to other brands</span>
+        <div class="words" id="ban-words"></div>
+      </div>
+      <div class="body">
+        <span class="lab">Phrasings to skip</span>
+        <ul class="plain">
+          <li>Any sentence that opens with the word Stop.</li>
+          <li>Any mortality statistic used as a threat.</li>
+          <li>Any promise of a cure.</li>
+          <li>Anything shaped like "doctors hate this".</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="craft">
+      <div class="head">
+        <span class="lab">07 / Craft</span>
+        <h2>How the sentences are built</h2>
+      </div>
+      <div class="grid g2">
+        <div class="card"><span class="lab">Length</span><h3>Under 15 words on average</h3><p>The site already writes this way. Keep it there.</p></div>
+        <div class="card"><span class="lab">Person</span><h3>We and you</h3><p>The brand is we. The reader is you. Every time.</p></div>
+        <div class="card"><span class="lab">Signature</span><h3>The pair</h3><p>A short claim, then its consequence. Use it in openings and closings, and let the middle breathe.</p></div>
+        <div class="card"><span class="lab">Punctuation</span><h3>Two sentences beat one long one</h3><p>A full stop does the work that a long pause was going to do.</p></div>
+        <div class="card"><span class="lab">Numbers</span><h3>Units and context</h3><p>"9 minutes to fall asleep" says something. A bare 9 says nothing.</p></div>
+        <div class="card"><span class="lab">Endings</span><h3>Close on a verb</h3><p>Something to do, in place of something to feel. Caps stay in UI labels only.</p></div>
+      </div>
+    </section>
+
+    <section id="hooks">
+      <div class="head">
+        <span class="lab">08 / Hooks</span>
+        <h2>Five formulas that refill forever</h2>
+        <p class="lede">Filter by family, then copy. F1 and F2 open cold traffic. F3 and F4 carry the caregiver.
+          F5 is the one thing nobody else in the category can say.</p>
+      </div>
+      <div class="filters" id="hook-filters"></div>
+      <p class="count" id="hook-count"></p>
+      <div class="hooks" id="hook-list"></div>
+    </section>
+
+    <section id="ads">
+      <div class="head">
+        <span class="lab">09 / Google Ads</span>
+        <h2>Clarity in the headline, warmth in the description</h2>
+        <p class="lede">Thirty characters give a caregiver very little room, so the warmth moves down into the
+          description. Character counts below are measured live on this page.</p>
+      </div>
+      <div class="ads" id="ads-h"></div>
+      <div class="ads" id="ads-d"></div>
+      <div class="grid g2">
+        <div class="card"><span class="lab">Search groups that fit</span>
+          <p>why am I always tired, oura sleep score meaning, sleep doctor online, can't sleep through the night.</p></div>
+        <div class="card"><span class="lab">Search groups to leave alone</span>
+          <p>sleep hack, best sleep supplement. Wrong voice, and the traffic behaves badly.</p></div>
+      </div>
+    </section>
+
+    <section id="paid">
+      <div class="head">
+        <span class="lab">10 / Paid social</span>
+        <h2>Four blocks, three angles</h2>
+        <p class="lede">Recognition, mechanism, proof, action. In that order, every time. Pick an angle and the
+          builder assembles a draft you can take into the ad account.</p>
+      </div>
+      <div class="builder">
+        <div class="picks" id="angle-picks"></div>
+        <div class="out" id="ad-out"></div>
+        <div class="acts">
+          <button class="btn" id="shuffle" type="button">New draft</button>
+          <button class="btn ghost" id="copy-ad" type="button">Copy draft</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="organic">
+      <div class="head">
+        <span class="lab">11 / Organic</span>
+        <h2>Three formats on repeat</h2>
+        <p class="lede">Repetition is how a voice becomes recognisable. Three shapes, posted often, beat ten shapes posted once.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card"><span class="lab">Format one</span><h3>The number that surprises</h3>
+          <p>One figure from sleep science, explained in three sentences, closing on a single practical conclusion.</p></div>
+        <div class="card"><span class="lab">Format two</span><h3>The morning question</h3>
+          <p>Something the reader feels and struggles to name. It ends on the explanation, and the product waits.</p></div>
+        <div class="card"><span class="lab">Format three</span><h3>The correction</h3>
+          <p>A common belief about sleep that turns out to be wrong. Calm tone, since a caregiver never makes anyone feel small.</p></div>
+      </div>
+      <div class="body">
+        <span class="lab">Formats we skip</span>
+        <ul class="plain">
+          <li>Lists shaped like "7 hacks".</li>
+          <li>Screenshots of a personal score with the explanation missing.</li>
+          <li>Anything that opens with "Most people don't realize".</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="checker">
+      <div class="head">
+        <span class="lab">12 / Tool</span>
+        <h2>Voice check</h2>
+        <p class="lede">Paste a headline, an ad, an email or a landing page. The check runs in your browser and
+          looks for the six things that pull Nightfall off voice.</p>
+      </div>
+      <div class="check">
+        <textarea id="draft" spellcheck="false" aria-label="Paste your copy here">You slept eight hours and you still feel like you didn't. There is a reason, and it's measurable. Nightfall reads your wearable data and gives you one thing to change tonight. When that is not enough, a board-certified sleep physician steps in.</textarea>
+        <div class="report">
+          <div class="stat"><span>Words</span><b id="s-words">0</b></div>
+          <div class="stat"><span>Sentences</span><b id="s-sent">0</b></div>
+          <div class="stat"><span>Average length</span><b id="s-avg">0</b></div>
+          <div class="flags" id="flags"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="decisions">
+      <div class="head">
+        <span class="lab">13 / Open</span>
+        <h2>Three calls that belong to the team</h2>
+      </div>
+      <div>
+        <div class="dec"><span class="n">01</span><div><h3>The Caregiver to Sage ratio</h3>
+          <p>This book sets it at 70 to 30. Moving science to the front changes the whole lexicon, so decide it once.</p></div></div>
+        <div class="dec"><span class="n">02</span><div><h3>Medical risk</h3>
+          <p>Fear stays out here. Apnea may deserve a calm exception, said plainly and once.</p></div></div>
+        <div class="dec"><span class="n">03</span><div><h3>The word alpha</h3>
+          <p>It is engineering language, and it cools the tone. A warmer word may serve the waitlist better.</p></div></div>
+      </div>
+      <footer>
+        <span>Nightfall voice book. Sources: nightfallhealth.com, live copy audit.</span>
+        <span>Copy examples stay in English for the US market.</span>
+      </footer>
+    </section>
+  </main>
+</div>
+
+<script>
+const RULES = [
+  {n:'Rule 1', t:'Recognise first, explain second',
+   yes:'You wake up tired even after eight hours. There is a reason, and it is measurable.',
+   no:'Nightfall analyzes over 200 sleep data points.'},
+  {n:'Rule 2', t:'One thing to do, in place of a list',
+   yes:'Tonight, move your workout two hours earlier. That is it.',
+   no:'Optimize your bedtime, your light exposure, your caffeine timing and your room temperature.'},
+  {n:'Rule 3', t:'The reader keeps their dignity',
+   yes:'Nothing is wrong with you. Something is wrong with your sleep window.',
+   no:'Most people sabotage their own sleep without realizing it.'},
+  {n:'Rule 4', t:'Precision in place of superlatives',
+   yes:'Your deep sleep drops 22% on nights you eat after 9pm.',
+   no:'Dramatically improve your deep sleep.'},
+  {n:'Rule 5', t:'Promise presence, in place of perfection',
+   yes:'If lifestyle changes fall short, a sleep physician takes over.',
+   no:'Fix your sleep forever in 30 days.'},
+  {n:'Rule 6', t:'The real human is always the argument',
+   yes:'A board-certified sleep physician. Not a chatbot.',
+   no:'AI-powered sleep guidance.'},
+  {n:'Rule 7', t:'Calm urgency only',
+   yes:'Early access is limited. We would love your help shaping what we build.',
+   no:'Poor sleep is killing you. Act now before it is too late.'}
+];
+const OWN = ['understand','actually','real','clear','tonight','why','what changes','we look at','one thing',
+  'your data','steps in','without the wait','board-certified','evidence-based','personalized','care'];
+const BAN = ['hack','biohack','optimize','unlock','secret','revolutionary','game-changing','effortless',
+  'ultimate','transform your life','crush','dominate','10x'];
+const HOOKS = [
+  {f:'F1', fam:'Recognition', s:'Tired', t:"You slept eight hours and you still feel like you didn't."},
+  {f:'F1', fam:'Recognition', s:'Confused', t:'You check your sleep score every morning. Then what?'},
+  {f:'F1', fam:'Recognition', s:'Confused', t:'Your ring says your sleep was fine. Your body disagrees.'},
+  {f:'F1', fam:'Recognition', s:'Worried', t:'Waking up at 3am is not random. It has a cause.'},
+  {f:'F1', fam:'Recognition', s:'Tired', t:"You've tried magnesium, mouth tape and a colder room. Still tired."},
+  {f:'F2', fam:'The gap', s:'Confused', t:'A sleep score is a grade. Nobody tells you how to pass.'},
+  {f:'F2', fam:'The gap', s:'Confused', t:'Your wearable measured everything and explained nothing.'},
+  {f:'F2', fam:'The gap', s:'Confused', t:"You have a year of sleep data. You've never used any of it."},
+  {f:'F2', fam:'The gap', s:'Confused', t:"Knowing your REM was 18% doesn't help you at 2am."},
+  {f:'F2', fam:'The gap', s:'Confused', t:'Data is not guidance. That gap is the whole problem.'},
+  {f:'F3', fam:'One thing', s:'Tired', t:'There are forty things that affect your sleep. You need to fix one.'},
+  {f:'F3', fam:'One thing', s:'Tired', t:"We don't hand you a checklist. We hand you tonight's change."},
+  {f:'F3', fam:'One thing', s:'Tired', t:'Most people change everything at once and learn nothing.'},
+  {f:'F3', fam:'One thing', s:'Tired', t:'The one habit costing you the most sleep is probably not the one you think.'},
+  {f:'F4', fam:'We take over', s:'Confused', t:"Connect your wearable. We'll take it from there."},
+  {f:'F4', fam:'We take over', s:'Confused', t:"You don't need to understand sleep science. That's our job."},
+  {f:'F4', fam:'We take over', s:'Confused', t:'No manual logs. No spreadsheets. It reads your data on its own.'},
+  {f:'F4', fam:'We take over', s:'Tired', t:"You've been trying to figure this out alone for two years."},
+  {f:'F5', fam:'A real doctor', s:'Worried', t:"When the app can't fix it, a doctor can."},
+  {f:'F5', fam:'A real doctor', s:'Worried', t:"Behind the data there's a real sleep physician. Same week."},
+  {f:'F5', fam:'A real doctor', s:'Worried', t:"Some sleep problems are medical. An algorithm won't tell you that."},
+  {f:'F5', fam:'A real doctor', s:'Worried', t:'A board-certified sleep doctor who already read your report before the call.'},
+  {f:'F5', fam:'A real doctor', s:'Worried', t:'Four months for a sleep clinic appointment. Or this week, from home.'},
+  {f:'F6', fam:'Authority', s:'All', t:'Built by the sleep scientist who wrote Why We Sleep.'},
+  {f:'F6', fam:'Authority', s:'All', t:'Dr. Matthew Walker spent 25 years on this. It fits in an app now.'}
+];
+const AD_H = ['Your data. Finally explained.','Answers, not sleep scores','A real doctor, not an app',
+  'Know why you sleep badly','Your Oura data, decoded',"See what's breaking sleep",'Built by Dr. Matthew Walker',
+  'Tired every day? Start here.','Sleep help that answers back','One change, starting tonight'];
+const AD_D = ['Nightfall reads your wearable data and tells you what to change tonight. Join the alpha.',
+  "When lifestyle changes aren't enough, a board-certified sleep doctor steps in.",
+  'Founded by Dr. Matthew Walker. Understand your sleep, then act on it.',
+  'Your ring tracks. Nightfall explains. And a real physician is one appointment away.'];
+const ANGLES = [
+  {k:'confusion', label:'Confusion', hooks:['F2'],
+   mech:'Nightfall reads the data your ring already collects and turns it into a plan you can follow tonight.',
+   proof:'Founded by Dr. Matthew Walker, the sleep scientist behind Why We Sleep.'},
+  {k:'tired', label:'Exhaustion', hooks:['F1','F3'],
+   mech:'We look at your nights, find the one habit costing you the most, and give you that single change.',
+   proof:'Built on 25 years of sleep research and hundreds of peer-reviewed papers.'},
+  {k:'medical', label:'Medical', hooks:['F5'],
+   mech:'Nightfall watches your sleep data, and books you with a sleep physician when the pattern looks clinical.',
+   proof:'Board-certified sleep physicians. Same week, from home.'}
+];
+const CTA = 'Join the alpha waitlist.';
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* rules */
+$('#rules-list').innerHTML = RULES.map(r => `
+  <div class="rule">
+    <div class="top"><span class="num">${r.n}</span><h3>${esc(r.t)}</h3></div>
+    <div class="ex">
+      <div class="yes"><span class="t">On brand</span>${esc(r.yes)}</div>
+      <div class="no"><span class="t">Off brand</span>${esc(r.no)}</div>
+    </div>
+  </div>`).join('');
+
+/* lexicon */
+$('#own-words').innerHTML = OWN.map(w => `<span class="w own">${esc(w)}</span>`).join('');
+$('#ban-words').innerHTML = BAN.map(w => `<span class="w ban">${esc(w)}</span>`).join('');
+
+/* hooks */
+const fams = ['All', ...new Set(HOOKS.map(h => h.f))];
+let active = 'All';
+const famName = f => f === 'All' ? 'All hooks' : f + ' ' + HOOKS.find(h => h.f === f).fam;
+$('#hook-filters').innerHTML = fams.map(f =>
+  `<button class="f" type="button" data-f="${f}" aria-pressed="${f === active}">${esc(famName(f))}</button>`).join('');
+function renderHooks(){
+  const list = HOOKS.filter(h => active === 'All' || h.f === active);
+  $('#hook-count').textContent = list.length + ' lines ready to use';
+  $('#hook-list').innerHTML = list.map((h, i) => `
+    <div class="hook">
+      <p>${esc(h.t)}</p>
+      <div class="bot"><span class="lab">${h.f} / ${esc(h.s)}</span>
+      <button class="copy" type="button" data-t="${esc(h.t).replace(/"/g,'&quot;')}">Copy</button></div>
+    </div>`).join('');
+}
+renderHooks();
+$('#hook-filters').addEventListener('click', e => {
+  const b = e.target.closest('.f'); if (!b) return;
+  active = b.dataset.f;
+  [...$('#hook-filters').children].forEach(c => c.setAttribute('aria-pressed', c.dataset.f === active));
+  renderHooks();
+});
+document.addEventListener('click', e => {
+  const b = e.target.closest('.copy'); if (!b) return;
+  navigator.clipboard.writeText(b.dataset.t).then(() => {
+    b.textContent = 'Copied'; b.classList.add('done');
+    setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('done'); }, 1400);
+  });
+});
+
+/* ads with live counts */
+function adTable(el, items, limit, label){
+  el.innerHTML = `<div class="ad adhead"><span>${label}</span><span>Chars</span><span>Limit ${limit}</span></div>` +
+    items.map(t => {
+      const n = t.length, over = n > limit;
+      return `<div class="ad"><span>${esc(t)}</span><span class="len ${over ? 'over' : ''}"><b>${n}</b></span>
+        <span class="len ${over ? 'over' : ''}">${over ? 'over' : 'fits'}</span></div>`;
+    }).join('');
+}
+adTable($('#ads-h'), AD_H, 30, 'Headline');
+adTable($('#ads-d'), AD_D, 90, 'Description');
+
+/* ad builder */
+let angle = ANGLES[0];
+$('#angle-picks').innerHTML = ANGLES.map(a =>
+  `<button class="f" type="button" data-k="${a.k}" aria-pressed="${a.k === angle.k}">${a.label}</button>`).join('');
+let draftText = '';
+function buildAd(){
+  const pool = HOOKS.filter(h => angle.hooks.includes(h.f));
+  const hook = pool[Math.floor(Math.random() * pool.length)].t;
+  const blocks = [['Recognition', hook], ['Mechanism', angle.mech], ['Proof', angle.proof], ['Action', CTA]];
+  draftText = blocks.map(b => b[1]).join('\n');
+  $('#ad-out').innerHTML = blocks.map(b =>
+    `<div class="blk"><span class="lab">${b[0]}</span><p>${esc(b[1])}</p></div>`).join('');
+}
+buildAd();
+$('#angle-picks').addEventListener('click', e => {
+  const b = e.target.closest('.f'); if (!b) return;
+  angle = ANGLES.find(a => a.k === b.dataset.k);
+  [...$('#angle-picks').children].forEach(c => c.setAttribute('aria-pressed', c.dataset.k === angle.k));
+  buildAd();
+});
+$('#shuffle').addEventListener('click', buildAd);
+$('#copy-ad').addEventListener('click', () => {
+  navigator.clipboard.writeText(draftText).then(() => {
+    const b = $('#copy-ad'); b.textContent = 'Copied';
+    setTimeout(() => { b.textContent = 'Copy draft'; }, 1400);
+  });
+});
+
+/* voice check */
+const FEAR = ['killing','kills','death','dying','dementia','alzheimer','too late','act now','last chance','hurry','deadly'];
+const BANNED = BAN.concat(['guaranteed','miracle','cure','effortlessly','life-changing']);
+function check(){
+  const t = $('#draft').value;
+  const words = t.trim() ? t.trim().split(/\s+/).length : 0;
+  const sents = t.split(/[.!?]+/).map(s => s.trim()).filter(Boolean);
+  const avg = sents.length ? Math.round(words / sents.length * 10) / 10 : 0;
+  $('#s-words').textContent = words;
+  $('#s-sent').textContent = sents.length;
+  $('#s-avg').textContent = avg;
+  const low = t.toLowerCase();
+  const flags = [];
+  const dashes = (t.match(/[—–]/g) || []).length;
+  flags.push(dashes
+    ? {w:1, m:`Long dashes found: <em>${dashes}</em>. Two short sentences read better.`}
+    : {w:0, m:'Punctuation is clean. Full stops are doing the work.'});
+  const bad = BANNED.filter(w => low.includes(w));
+  flags.push(bad.length
+    ? {w:1, m:`Category words to swap: <em>${bad.join(', ')}</em>`}
+    : {w:0, m:'Lexicon holds. Nothing borrowed from the hack crowd.'});
+  const fear = FEAR.filter(w => low.includes(w));
+  flags.push(fear.length
+    ? {w:1, m:`Fear language found: <em>${fear.join(', ')}</em>. Rule 7 asks for calm.`}
+    : {w:0, m:'Tone stays calm. Rule 7 holds.'});
+  flags.push(avg > 15
+    ? {w:1, m:`Sentences run long at <em>${avg} words</em>. Aim under 15.`}
+    : {w:0, m:'Sentence length sits in brand range.'});
+  const you = /\byou\b|\byour\b/.test(low);
+  flags.push(you
+    ? {w:0, m:'Second person present. The reader is in the room.'}
+    : {w:1, m:'Add <em>you</em>. The reader belongs in the sentence.'});
+  const owned = OWN.filter(w => low.includes(w));
+  flags.push(owned.length
+    ? {w:0, m:`Brand words in play: <em>${owned.slice(0,4).join(', ')}</em>`}
+    : {w:1, m:'Reach for a brand word: <em>real, tonight, one thing, understand</em>.'});
+  const starts = /(^|\n)\s*stop\b/i.test(t);
+  if (starts) flags.push({w:1, m:'A line opens with <em>Stop</em>. Open on what the reader feels instead.'});
+  $('#flags').innerHTML = flags.map(f =>
+    `<div class="flag ${f.w ? 'warn' : 'ok'}">${f.m}</div>`).join('');
+  try { localStorage.setItem('nf-draft', t); } catch (e) {}
+}
+try { const saved = localStorage.getItem('nf-draft'); if (saved) $('#draft').value = saved; } catch (e) {}
+$('#draft').addEventListener('input', check);
+check();
+
+/* nav state */
+const links = [...document.querySelectorAll('#nav a')];
+const obs = new IntersectionObserver(es => {
+  es.forEach(en => {
+    if (en.isIntersecting) links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + en.target.id));
+  });
+}, {rootMargin:'-25% 0px -65% 0px'});
+document.querySelectorAll('main section').forEach(s => obs.observe(s));
+
+/* theme */
+$('#theme').addEventListener('click', () => {
+  const now = document.documentElement.getAttribute('data-theme');
+  const next = now === 'dark' ? 'light' : now === 'light' ? 'dark'
+    : (matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark');
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('nf-theme', next); } catch (e) {}
+});
+try { const th = localStorage.getItem('nf-theme'); if (th) document.documentElement.setAttribute('data-theme', th); } catch (e) {}
+</script>

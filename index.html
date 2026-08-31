@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Nightfall brand voice: the rules, the hooks, and a live copy checker.">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Nightfall Voice Book">
 <meta property="og:description" content="Brand voice, hooks and language for Nightfall.">
@@ -22,18 +22,7 @@
   --sans:'Urbanist',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --col:720px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#111316; --panel:#1A1D22; --cream:#241E15; --ink:#ECECEA; --mut:#A8A8A3;
-    --faint:#7C7C78; --line:#292C33; --orange:#FF8A4D; --maroon:#E8867C;
-    --yes:#221A11; --no:#231719;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#111316; --panel:#1A1D22; --cream:#241E15; --ink:#ECECEA; --mut:#A8A8A3;
-  --faint:#7C7C78; --line:#292C33; --orange:#FF8A4D; --maroon:#E8867C;
-  --yes:#221A11; --no:#231719;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -211,7 +200,6 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
       <button class="tab" role="tab" id="t-why" aria-controls="p-why" aria-selected="false"
        >Why</button>
     </div>
-    <button class="mini" id="theme" type="button">Theme</button>
   </div>
 </header>
 
@@ -644,16 +632,6 @@ function show(id){
 tabs.forEach(t => t.addEventListener('click', () => show(t.id)));
 const start = location.hash.slice(1);
 if (['basics','write','why'].includes(start)) show('t-' + start);
-
-/* theme */
-$('#theme').addEventListener('click', () => {
-  const now = document.documentElement.getAttribute('data-theme');
-  const next = now === 'dark' ? 'light' : now === 'light' ? 'dark'
-    : (matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark');
-  document.documentElement.setAttribute('data-theme', next);
-  try { localStorage.setItem('nf-theme', next); } catch (e) {}
-});
-try { const th = localStorage.getItem('nf-theme'); if (th) document.documentElement.setAttribute('data-theme', th); } catch (e) {}
 
 /* boot */
 drawHooks();

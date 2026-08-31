@@ -271,6 +271,11 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
     <summary><span class="plus">+</span><span><span class="ttl">Hooks</span>
       <span class="sub" id="hooksub">opening lines, filtered, ready to copy</span></span></summary>
     <div class="in">
+      <div class="craft" style="margin-bottom:18px">
+        <div><b>Concrete</b><span>Name a time, a number, a device or a room. Clever lines get read and skipped.</span></div>
+        <div><b>One constraint</b><span>Every line carries a limit: tonight, 3am, two minutes, no referral.</span></div>
+        <div><b>Their words</b><span>"Why can't I sleep" is the most googled sleep question in the country. Write the question they type.</span></div>
+      </div>
       <div class="filters" id="hookf"></div>
       <div class="hooks" id="hooks"></div>
     </div>
@@ -384,6 +389,9 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
       <div><b>The competition</b><span>RISE runs a sleep clinic over telehealth and leads with "Done with sleep hacks? Try science", no referral, insurance accepted.</span></div>
       <div><b>Orthosomnia</b><span>Chasing a perfect score raises sleep anxiety. Named by sleep researchers in 2017 and now common in press coverage.</span></div>
       <div><b>The wait</b><span>Patients report two to three months for a sleep clinic appointment. Online specialists book within days.</span></div>
+      <div><b>Search volume</b><span>"Why can't I sleep" is the top sleep question in 46 states. "Why am I so tired" gets 74,000 searches a month worldwide.</span></div>
+      <div><b>What makes a hook work</b><span>UGC research for 2026 puts specificity above cleverness. Every winning hook carries one constraint: a time, a cost, a device, or a "without".</span></div>
+      <div><b>Three seconds</b><span>71% of viewers decide whether to keep watching inside three seconds, on average after 1.7.</span></div>
       <div><b>Warning hooks</b><span>"Stop doing this" openers beat positive ones on TikTok. Rule 7 keeps us out of that lane, so we buy the attention with numbers instead.</span></div>
     </div>
     <p class="sublab">Confirm before running</p>
@@ -411,7 +419,7 @@ const RULES = [
    yes:'Tonight, move your workout two hours earlier. That is the whole plan.',
    no:'Optimize your bedtime, your light exposure, your caffeine timing and your room temperature.'},
   {t:'Put the fault on the sleep',
-   yes:'Your sleep window is off by 90 minutes. That is a fixable thing.',
+   yes:'Your sleep window is off by 90 minutes. We can move it.',
    no:'Most people sabotage their own sleep without realizing it.'},
   {t:'Use the number',
    yes:'You fell asleep in 34 minutes last night. Two weeks ago it took you 11.',
@@ -439,34 +447,33 @@ const CRAFT = [
   {k:'Endings', v:'Close on a verb. Something to do.'}
 ];
 const HOOKS = [
-  {f:'F1', t:'You woke up at 3am again. Same time, every night.'},
-  {f:'F1', t:'Eight hours in bed. About four of them counted.'},
-  {f:'F1', t:'Wiped out at 3pm. Wide awake at 11.'},
-  {f:'F1', t:'Coffee stopped working on you months ago.'},
-  {f:'F1', t:'Magnesium, mouth tape, a cold room, a 10pm cutoff. Still tired.'},
-  {f:'F1', t:'The alarm goes off and it feels like you never slept.'},
-  {f:'F1', t:'You are in bed by ten and still wrecked at nine.'},
-  {f:'F2', t:'A sleep score with no instructions is a grade.'},
-  {f:'F2', t:'Your ring hands you a number. Nobody hands you a next step.'},
-  {f:'F2', t:'400 nights of data. One habit changed.'},
-  {f:'F2', t:'REM 18%. Now what?'},
-  {f:'F2', t:'You check the score before you check how you feel.'},
-  {f:'F2', t:'Chasing a 90 every morning keeps you awake. Doctors have a name for that.'},
-  {f:'F2', t:'Your tracker measures the night. Reading it is a different job.'},
-  {f:'F3', t:'Forty habits touch your sleep. One of them is costing you an hour.'},
-  {f:'F3', t:'Change one thing tonight. Check the number on Friday.'},
+  {f:'F1', t:'You have googled why can\'t I sleep more than once this month.'},
+  {f:'F1', t:'You wake up at 3am and lie there until 4:30.'},
+  {f:'F1', t:'You slept eight hours and still needed two coffees before noon.'},
+  {f:'F1', t:'Bed at 10:30. Asleep at 12:15. Awake at 3.'},
+  {f:'F1', t:'Tired all day, wide awake the second you lie down.'},
+  {f:'F1', t:'Falling asleep is fine. Staying asleep is the problem.'},
+  {f:'F1', t:'The alarm goes off and it feels like you never went to bed.'},
+  {f:'F2', t:'You wear an Oura ring and you still wake up tired.'},
+  {f:'F2', t:'Your ring gave you a 62 this morning and no reason for it.'},
+  {f:'F2', t:'Whoop says your recovery is 41%. Then it leaves you there.'},
+  {f:'F2', t:'A year of sleep data. Name one thing you changed because of it.'},
+  {f:'F2', t:'You know your REM was 18%. You still do not know what to do tonight.'},
+  {f:'F2', t:'You check your sleep score before you check how you feel.'},
+  {f:'F3', t:'Going to bed earlier is why some people wake up at 3am.'},
+  {f:'F3', t:'You need one change, not eleven new habits.'},
+  {f:'F3', t:'Move one thing tonight. Look at the number on Friday.'},
   {f:'F3', t:'One instruction a week. That is the whole program.'},
-  {f:'F3', t:'Most people fix five things at once and learn nothing.'},
-  {f:'F3', t:'The habit costing you the most sleep is rarely the one you suspect.'},
-  {f:'F4', t:'Connect your ring. We read it from here.'},
-  {f:'F4', t:'Nothing to log. It reads your wearable on its own.'},
-  {f:'F4', t:'Two minutes to connect. Then the reading is on us.'},
+  {f:'F3', t:'Most people change five things at once and learn nothing from any of them.'},
+  {f:'F4', t:'Connect your ring. We read the last 30 nights and write back.'},
+  {f:'F4', t:'Nothing to log. It reads your wearable while you sleep.'},
+  {f:'F4', t:'Two minutes to connect, and you never open a sleep spreadsheet again.'},
   {f:'F4', t:'You have been running your own sleep experiments for two years.'},
-  {f:'F5', t:'A sleep clinic can take two to three months. This is a video call.'},
+  {f:'F5', t:'A sleep clinic can take two to three months. This is a video call from your bedroom.'},
+  {f:'F5', t:'You snore and you are wrecked by 2pm. A doctor should hear that.'},
   {f:'F5', t:'Some sleep problems need a prescription. That takes a physician.'},
-  {f:'F5', t:'Snoring plus daytime exhaustion can mean apnea. A doctor should hear that.'},
   {f:'F5', t:'Your physician reads your report before the call starts.'},
-  {f:'F5', t:'A board-certified sleep doctor, on video, from your bedroom.'},
+  {f:'F5', t:'A board-certified sleep doctor on video, with no referral needed.'},
   {f:'F6', t:'Dr. Matthew Walker wrote Why We Sleep. This is what he built next.'},
   {f:'F6', t:'25 years of sleep research, pointed at your last 30 nights.'}
 ];
@@ -479,13 +486,13 @@ const FAM = {
   F5:{en:'F5 A real doctor'},
   F6:{en:'F6 Authority'}
 };
-const AD_H = ['Your sleep score, explained','Answers, not sleep scores','Talk to a sleep doctor',
-  'Know why you sleep badly','Your Oura data, decoded','Why you wake at 3am','Built by Dr. Matthew Walker',
-  'Tired every day? Start here.','Sleep help that answers back','One change, starting tonight'];
+const AD_H = ["Why can't I sleep?",'Why am I always tired?','Your sleep score, explained',
+  'Talk to a sleep doctor','Your Oura data, decoded','Why you wake up at 3am','Built by Dr. Matthew Walker',
+  'Sleep doctor, no waiting','Tired every day? Start here.','One change, starting tonight'];
 const AD_D = ['Nightfall reads your wearable data and tells you what to change tonight. Join the alpha.',
   'When four weeks of changes fall short, a board-certified sleep doctor takes over.',
   'Founded by Dr. Matthew Walker. Understand your sleep, then act on it.',
-  'Your ring tracks. Nightfall reads. A sleep physician is one video call away.'];
+  'A sleep physician on video, no referral, with your report already read.'];
 const ANGLES = [
   {k:'confusion', en:'Confused', use:['F2'],
    mech:'Nightfall reads the data your ring already collects and turns it into a plan for tonight.',
@@ -610,8 +617,11 @@ const TELLS = [
   [/\brather than\b/i, 'rather than'],
   [/\bin place of\b/i, 'in place of'],
   [/\bwhen it comes to\b/i, 'when it comes to'],
-  [/\b(delve|underscore[sd]?|testament|tapestry|showcas\w+|leverag\w+|pivotal|crucial|seamless|robust|vibrant|meticulous|intricate|holistic|empower\w*|elevate|foster\w*|harness|realm|landscape)\b/i, 'AI vocabulary'],
-  [/\bit(\s+is|'s)\s+(important|worth)\s+to?\s*not\w*\b/i, 'it is worth noting']
+  [/\b(serves|stands|acts) as\b/i, 'serves as'],
+  [/\bplays? (a|an) (key|crucial|vital|important)\b/i, 'plays a key role'],
+  [/\b(delve|dives? into|underscore[sd]?|testament|tapestry|showcas\w+|leverag\w+|pivotal|crucial|seamless|robust|vibrant|meticulous|commendable|intricate|holistic|empower\w*|elevate|foster\w*|harness|realm|landscape|boasts)\b/i, 'AI vocabulary'],
+  [/\bit(\s+is|'s)\s+(important|worth)\s+to?\s*not\w*\b/i, 'it is worth noting'],
+  [/(^|[.!?]\s)(a|an|the)\s[^.?!]{2,40}\s(is|are)\s(a|an|the)\s[^.?!]{2,40}[.!]/i, 'poster line']
 ];
 function check(){
   const t = $('#draft').value, low = t.toLowerCase();

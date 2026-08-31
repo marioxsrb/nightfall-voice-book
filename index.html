@@ -269,7 +269,7 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
 
   <details class="tool">
     <summary><span class="plus">+</span><span><span class="ttl">Hooks</span>
-      <span class="sub">25 opening lines, filtered, ready to copy</span></span></summary>
+      <span class="sub" id="hooksub">opening lines, filtered, ready to copy</span></span></summary>
     <div class="in">
       <div class="filters" id="hookf"></div>
       <div class="hooks" id="hooks"></div>
@@ -605,11 +605,12 @@ const FEAR = ['killing','kills','death','dying','dementia','alzheimer','too late
 const BANNED = BAN.concat(['guaranteed','miracle','cure','life-changing','unlock','effortless']);
 const TELLS = [
   [/\bactually\b/i, 'actually'],
-  [/not just[^.]{0,60}\bbut\b/i, 'not just X but Y'],
-  [/(it|this|that)(\s+is|'s)\s+not[^.]{0,40},\s*(it|this|that)(\s+is|'s)/i, 'it is not X, it is Y'],
+  [/\bnot just\b|\bnot only\b/i, 'not just X'],
+  [/(it|this|that)(\s+is|'s)\s+not\b[^.]{0,50}(,|\bbut\b)\s*(it|this|that)?(\s*is|'s)?\s/i, 'it is not X, it is Y'],
   [/\brather than\b/i, 'rather than'],
   [/\bin place of\b/i, 'in place of'],
-  [/\b(delve|underscore[sd]?|testament|tapestry|showcas\w+|leverag\w+)\b/i, 'AI vocabulary'],
+  [/\bwhen it comes to\b/i, 'when it comes to'],
+  [/\b(delve|underscore[sd]?|testament|tapestry|showcas\w+|leverag\w+|pivotal|crucial|seamless|robust|vibrant|meticulous|intricate|holistic|empower\w*|elevate|foster\w*|harness|realm|landscape)\b/i, 'AI vocabulary'],
   [/\bit(\s+is|'s)\s+(important|worth)\s+to?\s*not\w*\b/i, 'it is worth noting']
 ];
 function check(){
@@ -619,9 +620,9 @@ function check(){
   const avg = sents.length ? Math.round(words / sents.length * 10) / 10 : 0;
   $('#s-w').textContent = words; $('#s-s').textContent = sents.length; $('#s-a').textContent = avg;
   const dash = (t.match(/[—–]/g) || []).length;
-  const bad = BANNED.filter(w => low.includes(w));
+  const bad = [...new Set(BANNED.filter(w => low.includes(w)))];
   const fear = FEAR.filter(w => low.includes(w));
-  const tells = TELLS.filter(x => x[0].test(t)).map(x => x[1]);
+  const tells = [...new Set(TELLS.filter(x => x[0].test(t)).map(x => x[1]))];
   const you = /\byou\b|\byour\b/.test(low);
   const own = OWN.filter(w => low.includes(w));
   const rows = [
@@ -658,6 +659,7 @@ if (['basics','write','why'].includes(start)) show('t-' + start);
 
 /* boot */
 drawHooks();
+$('#hooksub').textContent = HOOKS.length + ' opening lines, filtered, ready to copy';
 drawAd();
 check();
 </script>

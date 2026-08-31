@@ -330,7 +330,7 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
       <p class="sublab">Keywords by intent</p>
       <div class="craft">
         <div><b>Problem aware</b><span>why am i always tired, why do i wake up at 3am, tired after 8 hours sleep, waking up exhausted every day</span></div>
-        <div><b>Wearable aware</b><span>oura sleep score meaning, whoop recovery score explained, good sleep score, how to improve deep sleep oura</span></div>
+        <div><b>Wearable aware</b><span>sleep score meaning, recovery score explained, what a good sleep score means, how to improve deep sleep</span></div>
         <div><b>Medical intent</b><span>sleep doctor online, online sleep clinic, telehealth sleep specialist, insomnia treatment online, sleep apnea consultation</span></div>
         <div><b>Brand and authority</b><span>matthew walker sleep, why we sleep author, nightfall sleep</span></div>
         <div><b>Negative keywords</b><span>free, sleep hacks, mattress, pillow, supplement, melatonin gummies, sleep music, baby sleep, jobs, salary</span></div>
@@ -348,6 +348,7 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
       <p class="sublab">Before the first click</p>
       <div class="craft">
         <div><b>LegitScript</b><span>Google requires it for telehealth in the US. $975 to apply per site, then $2,150 a year per site. A brand site plus a separate booking domain counts as two.</span></div>
+        <div><b>Competitor names</b><span>Their brand names stay out of every headline, description and callout. Google's trademark policy blocks them in ad text, and borrowing another name spends our budget on their brand. We say tracker, ring or wearable.</span></div>
         <div><b>Health claims</b><span>Every claim has to be truthful and provable. The numbers in F2 carry sources for exactly this reason.</span></div>
       </div>
     </div>
@@ -355,15 +356,47 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
 
   <details class="tool">
     <summary><span class="plus">+</span><span><span class="ttl">Organic posts</span>
-      <span class="sub">Three formats on repeat</span></span></summary>
+      <span class="sub">What earns saves, plus three posts written out</span></span></summary>
     <div class="in">
+      <p class="sublab">What the 2026 data says</p>
       <div class="craft">
-        <div><b>The number</b><span>One figure from sleep science. Three sentences. One thing to do about it.</span></div>
-        <div><b>The question</b><span>Something the reader feels every morning and lacks the words for. End on the answer. Leave the product out.</span></div>
-        <div><b>The correction</b><span>A common belief about sleep that the research contradicts. Calm tone. The reader keeps their dignity.</span></div>
+        <div><b>Saves carry it</b><span>Educational posts earn saves and shares to private chats at 5 to 10 times the rate of promotional posts. Saves now sit among the heaviest ranking signals.</span></div>
+        <div><b>Depth over likes</b><span>LinkedIn scores how long people stay with a post. Thirty seconds of reading beats fifty quick likes.</span></div>
+        <div><b>Replies</b><span>Creators who answer comments outperform creators who post and leave. Fifteen minutes a day, five to ten comments.</span></div>
+        <div><b>Cadence</b><span>The gap that matters sits between posting and staying quiet. Weekly rhythm: publish, reply, review, repeat.</span></div>
+        <div><b>Formats</b><span>Document carousels clear 7% engagement on LinkedIn. Long-form text of 600 to 1,200 characters with one image works for original insight. Reels carry the reach on Instagram.</span></div>
+        <div><b>One step per post</b><span>Every piece ends with one action the reader can take tonight. This is what turns a read into a save.</span></div>
       </div>
+      <p class="sublab">Three formats on repeat</p>
+      <div class="craft">
+        <div><b>The number</b><span>One figure from sleep science. Three sentences. One thing to do about it tonight.</span></div>
+        <div><b>The question</b><span>Something the reader feels every morning and lacks the words for. End on the answer, leave the product out.</span></div>
+        <div><b>The correction</b><span>A common belief about sleep that the research contradicts. Calm tone, and the reader keeps their dignity.</span></div>
+      </div>
+      <p class="sublab">Written out, ready to post</p>
+      <div class="out" id="posts"></div>
       <p class="sublab">What we skip</p>
       <p style="color:var(--mut);font-size:16px">Lists shaped like 7 hacks. Score screenshots with the explanation missing. Posts that open by telling people what they get wrong.</p>
+    </div>
+  </details>
+
+  <details class="tool">
+    <summary><span class="plus">+</span><span><span class="ttl">Email</span>
+      <span class="sub">The waitlist sequence and the weekly note, with subject lines counted</span></span></summary>
+    <div class="in">
+      <p class="sublab">Rules that come from the data</p>
+      <div class="craft">
+        <div><b>Subject length</b><span>Thirty to forty-five characters, six to ten words. Under forty for waitlist mail, so it survives a phone screen.</span></div>
+        <div><b>The first hour</b><span>A welcome sent inside the first hour earns roughly ten times the transaction rate of one sent later.</span></div>
+        <div><b>Series over single</b><span>Three to five welcome emails beat one. Nurtured subscribers convert at two to three times the rate of people who only hear from us at launch.</span></div>
+        <div><b>Cadence</b><span>Every one to two weeks through pre-launch. One call to action per email.</span></div>
+        <div><b>Timing</b><span>Nine to eleven in the reader's own morning. Skip Monday morning and Friday afternoon.</span></div>
+        <div><b>What to measure</b><span>Open rate turned soft once Apple started preloading images. Watch click rate, click to open, and unsubscribes. Health and wellness clicks land near 1.5 to 1.9%, and above 2.5% is a good week.</span></div>
+      </div>
+      <p class="sublab">Waitlist sequence, subject limit 45</p>
+      <div id="emails"></div>
+      <p class="sublab">The weekly note, once the app is live</p>
+      <div class="out" id="weekly"></div>
     </div>
   </details>
 
@@ -474,6 +507,10 @@ footer{padding:36px 0 0;border-top:1px solid var(--line);color:var(--faint);font
       <div><b>Search benchmarks</b><span>Health and wellness sits at 1.73% CTR, CPC between $1.63 and $2.95, conversion between 4.1% and 9%.</span></div>
       <div><b>Telehealth rules</b><span>Google requires LegitScript certification for US telehealth, $975 per site to apply and $2,150 a year after.</span></div>
       <div><b>Meta creative</b><span>Hook rate above 30% earns cheaper delivery. Primary text hides past 125 characters. Refresh at frequency 3.5 with engagement down 25%, or 3.0 on Reels. Keep 10 to 20 ads live across formats.</span></div>
+      <div><b>Email benchmarks</b><span>Health and wellness clicks sit near 1.5 to 1.9%, and above 2.5% counts as strong. Open rate went soft once Apple began preloading images, so clicks and unsubscribes carry the read.</span></div>
+      <div><b>Welcome timing</b><span>A welcome inside the first hour earns about ten times the transaction rate of a later one. Three to five emails beat one, and nurtured subscribers convert two to three times better.</span></div>
+      <div><b>Organic signals</b><span>Educational posts earn saves and private shares at 5 to 10 times the rate of promotional posts. LinkedIn scores reading time. Document carousels clear 7% engagement.</span></div>
+      <div><b>Brand names</b><span>Competitor names live here, inside the research. Everything we publish says tracker, ring or wearable.</span></div>
       <div><b>Warning hooks</b><span>"Stop doing this" openers beat positive ones on TikTok. Rule 7 keeps us out of that lane, so we buy the attention with numbers instead.</span></div>
     </div>
     <p class="sublab">Confirm before running</p>
@@ -530,7 +567,7 @@ const CRAFT = [
   {k:'Endings', v:'Close on a verb. Something to do.'}
 ];
 const HOOKS = [
-  {f:'F1', t:'For everyone who wears an Oura ring and still wakes up tired.'},
+  {f:'F1', t:'For everyone who wears a sleep tracker and still wakes up tired.'},
   {f:'F1', t:'For the 3am club: awake at 3, asleep again at 5, wrecked at 9.'},
   {f:'F1', t:'For people who have already tried magnesium, mouth tape and a 10pm bedtime.'},
   {f:'F1', t:'Wearing a tracker for a year? Read this before you buy another one.'},
@@ -548,7 +585,7 @@ const HOOKS = [
   {f:'F3', t:'Falling asleep is the easy part for you. Staying asleep is the hard part.'},
   {f:'F3', t:'The alarm goes off and it feels like you just lay down.'},
   {f:'F4', t:'Your ring gave you a 62 this morning and kept the reason to itself.'},
-  {f:'F4', t:'Whoop says your recovery is 41%. Then it leaves you there.'},
+  {f:'F4', t:'Your tracker says your recovery is 41%. Then it leaves you there.'},
   {f:'F4', t:'A year of sleep data. Name one thing you changed because of it.'},
   {f:'F4', t:'You know your REM was 18%. Tonight you are still guessing.'},
   {f:'F4', t:'Your ring measures. Nightfall reads it and hands you tonight\'s change.'},
@@ -572,7 +609,7 @@ const FAM = {
   F6:{en:'F6 Walker'}
 };
 const AD_H = ['Why do I wake up at 3am?','Why am I always tired?','Your sleep score, explained',
-  'Your Oura data, decoded','Talk to a sleep doctor','Sleep doctor this week','Built by Dr. Matthew Walker',
+  'Your tracker data, decoded','Talk to a sleep doctor','Sleep doctor this week','Built by Dr. Matthew Walker',
   'From the Why We Sleep author','30 nights, one clear answer','One change, starting tonight',
   'Tired every day? Start here.','Sleep help that answers back','Board-certified sleep care',
   'Read your ring properly','Join the Nightfall alpha'];
@@ -580,8 +617,28 @@ const AD_SL = [['How Nightfall IQ works','Connect your ring in two minutes'],
   ['Meet the sleep doctors','Board-certified, on video'],
   ['The science behind it','25 years of sleep research'],
   ['Join the alpha','Early access, limited spots']];
-const AD_CO = ['Board-certified doctors','Works with Oura & Whoop','Video visits from home',
+const AD_CO = ['Board-certified doctors','Works with any tracker','Video visits from home',
   'Founded by Matthew Walker','One change a week','Early access open'];
+const POSTS = [
+  {n:'The number', b:'Basketball players at Stanford pushed their sleep from 6.6 hours to 8.5.\nTwo months later their free throws were up 9% and their three-pointers up 9.2%.\nThe training stayed the same. Sleep did the rest.\nTonight: pick a lights-out time and hold it for seven days.'},
+  {n:'The question', b:'Why does 3am feel so specific?\nBy then most of your deep sleep is behind you, so the night turns light and thin. A small rise in alertness that you would sleep straight through at 1am is enough to surface you at 3.\nGoing to bed earlier makes it more likely, since the pressure to sleep runs out sooner.\nTonight: hold your usual bedtime, even on a rough day.'},
+  {n:'The correction', b:'Weekend catch-up sleep gets planned all week and repays very little.\nSleep works like a bank that accepts deposits and refuses withdrawals. The learning you lost on Tuesday stays lost, because the hippocampus had already stopped filing.\nA steady week beats a heroic Sunday.\nTonight: move bedtime 15 minutes earlier, five nights running.'}
+];
+const EMAILS = [
+  {s:'You are on the list', w:'Within the hour', b:'Say what happens next and when. One line about the first thing they will see. One call to action: reply and tell us what your nights look like.'},
+  {s:'Why 3am feels so specific', w:'Day 3', b:'The 3am explanation, written plainly. Ends on one thing to try tonight. This is the email that proves we teach before we sell.'},
+  {s:'9% more free throws', w:'Day 10', b:'The Stanford result, and what it says about the rest of us. Sleep as a lever, with a number attached.'},
+  {s:'The doctors behind the app', w:'Day 17', b:'Board-certified sleep physicians, how a visit works, and what an app hands over to a human.'},
+  {s:'Your tracker already knows', w:'Day 24', b:'The specific next step. Connect the tracker, hold your spot, and see the first read.'},
+  {s:'What we built this month', w:'Every 2 weeks after', b:'Build notes, one science paragraph, one question for the reader. Keeps the list warm until launch.'}
+];
+const WEEKLY = [
+  ['Subject', 'One change for this week'],
+  ['Line 1', 'What your last seven nights actually did.'],
+  ['Line 2', 'The single change, with the reason in one sentence.'],
+  ['Line 3', 'The number to watch on Friday.'],
+  ['Close', 'Reply if this week felt harder than usual. A physician reads the hard ones.']
+];
 const SCRIPTS = [
   {n:'The gap', hook:'Your ring gave you a 62 this morning and kept the reason to itself.',
    prob:'A year of nights sits in that app, and one habit came out of it.',
@@ -621,7 +678,7 @@ const BLK = {rec:{en:'Recognition'}, mec:{en:'Mechanism'},
   pro:{en:'Proof'}, act:{en:'Action'}};
 const CTA = 'Join the alpha waitlist.';
 const WHO = [
-  {h:'Confused', p:'Has worn an Oura or a Whoop for a year. Sees a score every morning and shelves it.',
+  {h:'Confused', p:'Has worn a tracker for a year. Sees a score every morning and shelves it.',
    n:'Needs clarity. Open with F2.'},
   {h:'Tired', p:'Sleeps seven hours and wakes up wrecked. Has tried supplements and routines.',
    n:'Needs hope. Open with F1, then F3.'},
@@ -697,6 +754,20 @@ $('#adsl').innerHTML = AD_SL.map(x => {
   return `<div class="adline"><span><b>${esc(x[0])}</b><br><span style="color:var(--mut)">${esc(x[1])}</span></span>
     <span class="len ${a > 25 || b > 35 ? 'over' : ''}">${a} / ${b}</span></div>`;
 }).join('');
+$('#posts').innerHTML = POSTS.map(x => `
+  <div style="border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:6px">
+    <p class="eyebrow" style="margin-bottom:8px">${esc(x.n)}</p>
+    ${x.b.split('\n').map(l => `<p style="margin-bottom:6px">${esc(l)}</p>`).join('')}
+    <p class="len" style="text-align:left">${x.b.length} characters</p>
+  </div>`).join('');
+$('#emails').innerHTML = EMAILS.map(x => {
+  const n = x.s.length;
+  return `<div class="adline"><span><b>${esc(x.s)}</b><br>
+    <span style="color:var(--mut);font-size:15px">${esc(x.w)}. ${esc(x.b)}</span></span>
+    <span class="len ${n > 45 ? 'over' : ''}">${n}</span></div>`;
+}).join('');
+$('#weekly').innerHTML = WEEKLY.map(r =>
+  `<div class="blk"><span class="eyebrow">${r[0]}</span><p>${esc(r[1])}</p></div>`).join('');
 $('#scripts').innerHTML = SCRIPTS.map(x => `
   <div style="border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:6px">
     <p class="eyebrow" style="margin-bottom:8px">${esc(x.n)}</p>
